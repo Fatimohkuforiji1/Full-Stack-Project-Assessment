@@ -1,7 +1,37 @@
 .App {
   text-align: center;
   background-color: rgb(76, 63, 192);
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: 'Lucida Sans Unicode';
   line-height: 6rem;
   color: azure;
+}
+.addVideo{
+  display:flex;
+  align-items: baseline;
+}
+.title{
+   width: 30%;
+  margin: 3rem ;
+  justify-content: space-between ;
+
+}
+.videoGrid{
+  display: grid;
+  grid-template-columns: repeat(4,2fr);
+}
+
+.Thumbs{
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 5%;
+}
+
+.oneVideoGrid{
+  min-width: 320px;
+  min-height: 160px;
+
+}
+
+.addVideoDisplay{
+  display: none;
 }

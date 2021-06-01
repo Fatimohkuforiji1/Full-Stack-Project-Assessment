@@ -1,23 +1,37 @@
 import React from 'react'
-import AllVideosData from "../Data/AllVideosData.js"
+import AllVideosData from '../Data/AllVideosData.js';
+import OneVideoGrid from './oneVideoGrid.js'
 
 
 const VideoGrid = (props) => {
-    const iFramesUrl = AllVideosData.map((iFrameUrl) => {
-      let iFramesId = iFrameUrl.url.split("=")[1];
-    });
+
+     function sorter(videos) {
+       videos.sort((a, b) => {
+         if (a.rating > b.rating) {
+           return -1;
+         } else {
+           return 1;
+         }
+       });
+     }
+
     return (
         <div className ="videoGrid">
-        {props.AllVideosData.map((AllVideo)=>{
-            return (<div> 
-                <h5>{AllVideo.title}</h5>                
-                 <iframe> </iframe>
-             </div>)
-             
+        {sorter(AllVideosData)}
+        {props.AllVideosData.map((AllVideo, index)=>{
+            const iFramesId = AllVideo.url.split("=")[1]
+            const title = AllVideo.title;
+            const rating = AllVideo.rating;
+            return  (
+                <div key={index}>
+              <OneVideoGrid iFramesId = {iFramesId} title = {title} rating={rating}
+               handleVideoDelete ={props.handleVideoDelete}/>
+                </div> )
 
-        })}
-        </div>
-    )
-}
+                
+})}
+      </div>
+      
+)}
 
 export default VideoGrid
