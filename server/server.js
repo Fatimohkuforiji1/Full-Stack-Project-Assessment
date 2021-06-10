@@ -37,23 +37,28 @@ app.post("/", (req, res) => {
   let id = 1;
   let rating = 0;
   const addVideo = req.body;
-  if (addVideo.hasOwnProperty("title") || addVideo.hasOwnProperty("url")) {
-    const oneNewVideo = {
-      id: id++,
-      title: addVideo.title,
-      url: addVideo.url,
-      rating: rating,
-    };
-    videoData.push(oneNewVideo);
-    res.json({
-      id: oneNewVideo.id,
-    });
-  } else {
-    response.json({
-      result: "failure",
-      message: "Video could not be saved",
-    });
-  }
+  console.log(addVideo);
+//  ../client/src/Components/AddVideo.js
+//         modified:   ../client/src/Components/AllVideoFiles.js
+//         modified:   ../client/src/Components/VideoGrid.js
+
+  // if (addVideo.hasOwnProperty("title") || addVideo.hasOwnProperty("url")) {
+  //   const oneNewVideo = {
+  //     id: id++,
+  //     title: addVideo.title,
+  //     url: addVideo.url,
+  //     rating: rating,
+  //   };
+  //   videoData.push(oneNewVideo);
+  //   res.json({
+  //     id: oneNewVideo.id,
+  //   });
+  // } else {
+  //   response.json({
+  //     result: "failure",
+  //     message: "Video could not be saved",
+  //   });
+  // }
 });
 
 app.get("/:id", (req, res) => {
