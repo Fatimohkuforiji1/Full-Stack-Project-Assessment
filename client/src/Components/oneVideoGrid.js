@@ -1,10 +1,15 @@
-import {React,useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { FaRegThumbsDown, FaRegThumbsUp } from "react-icons/fa";
 import DeleteButton from './deleteButton.js';
 
 
 const OneVideoGrid = (props) => {
-const  [countVote, setCountVote] = useState(props.rating);
+const  [countVote, setCountVote] = useState();
+
+useEffect(() => {
+  setCountVote(props.rating);
+}, [props.rating]);
+
 
 const handleCountVote =(event)=>{
   const voteCount = event.currentTarget;
