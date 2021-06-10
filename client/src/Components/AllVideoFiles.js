@@ -71,18 +71,19 @@ const AllVideoFiles = () => {
     console.log(searchFiltered);
     setVideoSearch(searchFiltered);
   };
-  const handleAddVideo = (videoData) => {
-    const URLValidate =
-      /(?:https?:\/\/)?(?:youtu\.be\/|(?:www\.|m\.)?youtube\.com\/(?:watch|v|embed)(?:\.php)?(?:\?.*v=|\/))([a-zA-Z0-9_-]+)/;
-    if (
-      videoData.title.trim().length !== 0 &&
-      videoData.url.match(URLValidate)
-    ) {
-      setVideoSearch([videoData, ...videoSearch]);
-    } else {
-      alert("Enter valid URL");
-    }
-  };
+
+  // const handleAddVideo = (videoData) => {
+  //   const URLValidate =
+  //     /(?:https?:\/\/)?(?:youtu\.be\/|(?:www\.|m\.)?youtube\.com\/(?:watch|v|embed)(?:\.php)?(?:\?.*v=|\/))([a-zA-Z0-9_-]+)/;
+  //   if (
+  //     videoData.title.trim().length !== 0 &&
+  //     videoData.url.match(URLValidate)
+  //   ) {
+  //     setVideoSearch([videoData, ...videoSearch]);
+  //   } else {
+  //     alert("Enter valid URL");
+  //   }
+  // };
 
   const handleVideoDelete = (event) => {
     const deleteVideo =
@@ -100,10 +101,11 @@ const AllVideoFiles = () => {
   return (
     <div>
       <AddVideo
-        handleAddVideo={handleAddVideo}
         handleVideoSearch={handleVideoSearch}
         videoBtn={videoBtn}
         handleVideoBtn={handleVideoBtn}
+        setVideoSearch={setVideoSearch}
+        videoSearch={videoSearch}
       />
       <VideoGrid
         AllVideosData={videoSearch}

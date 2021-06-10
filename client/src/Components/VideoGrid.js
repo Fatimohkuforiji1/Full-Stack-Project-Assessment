@@ -26,7 +26,8 @@ const VideoGrid = (props) => {
                 <div key={index}>
               <OneVideoGrid iFramesId = {iFramesId} title = {title} rating={rating}
                handleVideoDelete ={props.handleVideoDelete}/>
-                </div> )
+                </div> 
+                )
 
                 
 })}
